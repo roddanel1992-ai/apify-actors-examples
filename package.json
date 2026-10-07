@@ -1,0 +1,13 @@
+{
+  "name": "apify-actors-examples",
+  "version": "1.0.0",
+  "private": true,
+  "description": "curl, Python and Node.js examples for the rod_analytics Actors on Apify Store",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "apify-client": "^2.25.0"
+  }
+}

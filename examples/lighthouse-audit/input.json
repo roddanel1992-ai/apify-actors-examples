@@ -1,0 +1,7 @@
+{
+    "urls": [
+        "https://apify.com"
+    ],
+    "engine": "psi",
+    "strategy": "mobile"
+}

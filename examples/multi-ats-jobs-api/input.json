@@ -1,0 +1,10 @@
+{
+    "presets": [
+        "ai"
+    ],
+    "keywords": [
+        "engineer"
+    ],
+    "maxJobs": 50,
+    "maxJobsPerCompany": 5
+}

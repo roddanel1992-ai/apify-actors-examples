@@ -1,0 +1,5 @@
+{
+    "mode": "crawl",
+    "startUrl": "https://docs.apify.com/academy",
+    "maxPages": 20
+}

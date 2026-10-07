@@ -1,0 +1,19 @@
+{
+    "cpvCodes": [
+        "72000000"
+    ],
+    "countries": [
+        "DE",
+        "FR",
+        "IT",
+        "ES",
+        "NL",
+        "PL"
+    ],
+    "noticeTypes": [
+        "contract-notice",
+        "contract-award"
+    ],
+    "publishedWithinDays": 7,
+    "maxItems": 50
+}

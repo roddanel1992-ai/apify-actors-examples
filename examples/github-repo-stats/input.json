@@ -1,0 +1,5 @@
+{
+    "mode": "trending",
+    "maxItems": 25,
+    "maxRateLimitWaitSecs": 60
+}

@@ -1,0 +1,16 @@
+{
+    "mode": "auto",
+    "countries": [
+        "FR",
+        "NO",
+        "FI",
+        "EE"
+    ],
+    "queries": [
+        "Nokia"
+    ],
+    "maxItemsPerQuery": 2,
+    "includeVies": true,
+    "includeLei": true,
+    "includeRaw": false
+}

@@ -1,0 +1,9 @@
+{
+    "emails": [
+        "info@apify.com",
+        "example.user@gmial.com",
+        "test@mailinator.com",
+        "hello@no-such-domain-4f7a2c.com",
+        "not-an-email@"
+    ]
+}
