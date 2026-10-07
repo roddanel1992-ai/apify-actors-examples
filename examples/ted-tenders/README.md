@@ -75,4 +75,4 @@ Published tasks for this Actor on Apify Store, each with a tested input you can 
 
 ---
 
-[All 14 examples](../../README.md) · [EU TED Tenders Scraper & Alerts: Public Procurement on Apify Store](https://apify.com/rod_analytics/ted-tenders)
+[All 17 examples](../../README.md) · [EU TED Tenders Scraper & Alerts: Public Procurement on Apify Store](https://apify.com/rod_analytics/ted-tenders)

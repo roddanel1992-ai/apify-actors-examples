@@ -1,0 +1,18 @@
+{
+    "people": [
+        {
+            "firstName": "Jane",
+            "lastName": "Doe",
+            "domain": "sorainen.com"
+        },
+        {
+            "firstName": "John",
+            "lastName": "Smith",
+            "domain": "tlu.ee"
+        },
+        {
+            "fullName": "Anna Meier",
+            "companyWebsite": "https://www.ut.ee"
+        }
+    ]
+}

@@ -2,7 +2,7 @@
 
 Get company emails, the main phone number and LinkedIn, Facebook, Instagram, X and YouTube links from a list of company websites, plus address, EU VAT IDs and register numbers from the impressum. One row per company. You can also feed it the dataset of a Google Maps scraper run. The code here calls the [Website Contact Scraper: Emails, Phones & Social Links](https://apify.com/rod_analytics/company-contact-extractor) Actor on Apify.
 
-**API key needed:** None. No browser and no social network is visited. You only need an Apify API token. By default only generic role mailboxes such as info@ and sales@ are returned.
+**API key needed:** None. No browser and no social network is visited. You only need an Apify API token. By default only generic role mailboxes such as info@ and sales@ are returned. Named people are an opt-in extra, see below.
 
 ## Run it
 
@@ -36,6 +36,8 @@ Fields worth changing:
 - `datasetId`, `urlField`: Read websites from another run's dataset, for example a Google Maps scraper. The `website` field is found automatically.
 - `maxPagesPerDomain`: Homepage plus priority pages, 1 to 50. The price per website stays the same.
 - `includePersonalEmails`: Off by default. Turning it on returns addresses of named people and makes you the data controller under GDPR.
+- `includePeople`: Off by default. Returns the named people a company lists on its own team, about and impressum pages. See "Named people" below.
+- `suppressionList`: Emails, domains or SHA-256 hashes of people who objected. They are never returned.
 
 The full input reference is on the [Store page](https://apify.com/rod_analytics/company-contact-extractor) under **Input**.
 
@@ -45,13 +47,27 @@ One dataset item per website with `emails[]` holding `email`, `type`, `sourceUrl
 
 The Python and Node.js scripts print a short line per item. The curl script prints the raw JSON. Add `&format=csv` to the curl URL for CSV.
 
+## Named people (optional)
+
+Add `"includePeople": true` to the input to get a `people` list per company: `fullName`, `jobTitle`, `seniority`, `workEmail`, `emailKind`, `workPhone`, `sourceUrl` and `extractedAt`. Only the company's own pages are read, robots.txt is always respected, and no LinkedIn or other social site is visited. Work emails appear only when they sit on the company domain. The row also carries `peopleCount`.
+
+```json
+{
+    "domains": ["apify.com", "mollie.com", "gitlab.com"],
+    "includePeople": true,
+    "suppressionList": ["person-who-objected@example.com"]
+}
+```
+
+You are the controller of this data. You need a lawful basis, must inform each person under GDPR Art. 14 (use `sourceUrl`) and must honour objections through `suppressionList`. Germany requires prior consent for advertising email, also B2B. Read the GDPR section on the [Store page](https://apify.com/rod_analytics/company-contact-extractor) first.
+
 ## Responsible use
 
 Only process data you have a lawful basis for, for example under GDPR, and do not use the results for spam. Details are in the FAQ on the [Store page](https://apify.com/rod_analytics/company-contact-extractor).
 
 ## Pricing
 
-Pay per event, so you pay per result, not for compute time. At time of writing, 2026-10, the Free plan price is $3 per 1,000 websites, up to 5 pages per site included. Websites that fail with DNS errors, timeouts or bot walls are not charged. Paid Apify plans get lower prices. Check the [Store page](https://apify.com/rod_analytics/company-contact-extractor) for current prices before large runs.
+Pay per event, so you pay per result, not for compute time. At time of writing, 2026-10, the Free plan price is $3 per 1,000 websites, up to 5 pages per site included. Websites that fail with DNS errors, timeouts or bot walls are not charged. Named people cost $0.004 each from 2026-10-21 and only when `includePeople` is on. Paid Apify plans get lower prices. Check the [Store page](https://apify.com/rod_analytics/company-contact-extractor) for current prices before large runs.
 
 ## More ready-made inputs
 
@@ -62,7 +78,8 @@ Published tasks for this Actor on Apify Store, each with a tested input you can 
 - [Impressum Scraper: VAT ID, HRB and Address of German Firms](https://apify.com/rod_analytics/company-contact-extractor/examples/find-impressum-vat-id-german-companies)
 - [Build a SaaS Lead List With Company Emails](https://apify.com/rod_analytics/company-contact-extractor/examples/build-saas-lead-list-with-emails)
 - [Enrich CRM Company Domains With Emails and Phones](https://apify.com/rod_analytics/company-contact-extractor/examples/enrich-crm-domains-with-contact-details)
+- [Find Managing Directors and Heads on Company Websites](https://apify.com/rod_analytics/company-contact-extractor/examples/find-managing-directors-and-heads-on-company-websites)
 
 ---
 
-[All 14 examples](../../README.md) · [Website Contact Scraper: Emails, Phones & Social Links on Apify Store](https://apify.com/rod_analytics/company-contact-extractor)
+[All 17 examples](../../README.md) · [Website Contact Scraper: Emails, Phones & Social Links on Apify Store](https://apify.com/rod_analytics/company-contact-extractor)

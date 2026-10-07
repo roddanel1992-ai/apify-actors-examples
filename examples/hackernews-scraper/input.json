@@ -1,0 +1,13 @@
+{
+    "mode": "search",
+    "queries": [
+        "AI agents"
+    ],
+    "contentTypes": [
+        "story"
+    ],
+    "sortBy": "popularity",
+    "createdWithinDays": 365,
+    "minPoints": 100,
+    "maxItems": 20
+}

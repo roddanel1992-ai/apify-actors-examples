@@ -1,6 +1,6 @@
 # Apify Actors API examples: PDF to Markdown, SEO audit, Companies House, email verifier and more
 
-Copy-paste examples in curl, Python and Node.js for the 14 public [Apify](https://apify.com) Actors by Rod Services, Apify username [`rod_analytics`](https://apify.com/rod_analytics).
+Copy-paste examples in curl, Python and Node.js for the 17 public [Apify](https://apify.com) Actors by Rod Services, Apify username [`rod_analytics`](https://apify.com/rod_analytics).
 
 Every Actor is called the same way: send a JSON input, get JSON rows back. Each folder in [`examples/`](examples/) has a working `input.json` and three scripts that run with only `APIFY_TOKEN` set.
 
@@ -31,16 +31,19 @@ Every Actor is called the same way: send a JSON input, get JSON rows back. Each 
 | --- | --- | --- | --- | --- |
 | Website Contact Scraper: Emails, Phones & Social Links | Company emails, phone, social links, address and VAT IDs per website | No | [code](examples/company-contact-extractor/) | [company-contact-extractor](https://apify.com/rod_analytics/company-contact-extractor) |
 | Email Validator & Verifier: Bulk MX & Disposable Check | Syntax, MX, disposable, role and typo checks with a verdict per address | No for the default checks. The optional SMTP mailbox check needs your own SOCKS5 proxy with port 25 | [code](examples/bulk-email-verifier/) | [bulk-email-verifier](https://apify.com/rod_analytics/bulk-email-verifier) |
+| Email Format Finder: Company Email Pattern Lookup | Email format of a company (first.last, flast...) with confidence, example emails and source pages | No. A Hunter key of your own is optional | [code](examples/email-format-finder/) | [email-format-finder](https://apify.com/rod_analytics/email-format-finder) |
+| Work Email Finder: Find Email by Name and Domain | Work email from a name and company domain: published, verified or labelled pattern guess | No. A MillionVerifier key of your own adds mailbox checks | [code](examples/work-email-finder/) | [work-email-finder](https://apify.com/rod_analytics/work-email-finder) |
 | VIES VAT Checker & EU Company Registry Lookup | VIES VAT validation plus company registries of FR, NO, FI and EE, LEI from GLEIF | No | [code](examples/eu-company-lookup/) | [eu-company-lookup](https://apify.com/rod_analytics/eu-company-lookup) |
 | Companies House Scraper: UK Company Search, No API Key | UK company search and profiles, PSC, filings, charges and officers | No. Uses a built-in key. Your own free key is optional for big runs | [code](examples/uk-companies-house/) | [uk-companies-house](https://apify.com/rod_analytics/uk-companies-house) |
 
-### Jobs, tenders and GitHub data
+### Jobs, tenders, news and GitHub data
 
 | Actor | What it does | API key needed? | Example | Store |
 | --- | --- | --- | --- | --- |
 | EU TED Tenders Scraper & Alerts: Public Procurement | EU public tenders by CPV, keyword, country and value, with only-new alerts | No | [code](examples/ted-tenders/) | [ted-tenders](https://apify.com/rod_analytics/ted-tenders) |
 | Greenhouse, Lever & Ashby Job Scraper: 8 ATS in One Feed | Jobs from 8 ATS platforms in one schema, company presets, only-new mode | No | [code](examples/multi-ats-jobs-api/) | [multi-ats-jobs-api](https://apify.com/rod_analytics/multi-ats-jobs-api) |
 | GitHub Scraper: Repo Stats, Stars, Trending & Search | GitHub trending, repo stats, search and org listing | No for trending. A GitHub token is optional for API modes, which allow 60 requests per hour without one | [code](examples/github-repo-stats/) | [github-repo-stats](https://apify.com/rod_analytics/github-repo-stats) |
+| Hacker News Scraper: Stories, Comments & Who's Hiring Jobs | Hacker News search, front page, threads with comments and Who is hiring job posts parsed into fields, with only-new mode | No | [code](examples/hackernews-scraper/) | [hackernews-scraper](https://apify.com/rod_analytics/hackernews-scraper) |
 
 ## Quick start
 
@@ -114,7 +117,7 @@ Each script reads `input.json` from its own folder. Edit that file to change the
 
 ## Use from AI agents (MCP)
 
-All 14 Actors work as tools through Apify's MCP server at [mcp.apify.com](https://mcp.apify.com). Pick the Actors you want with the `tools` query parameter. The hosted server signs you in with OAuth, or takes an `Authorization: Bearer <APIFY_TOKEN>` header.
+All 17 Actors work as tools through Apify's MCP server at [mcp.apify.com](https://mcp.apify.com). Pick the Actors you want with the `tools` query parameter. The hosted server signs you in with OAuth, or takes an `Authorization: Bearer <APIFY_TOKEN>` header.
 
 MCP client config, for example in Cursor or VS Code:
 
@@ -140,10 +143,10 @@ Local stdio server, with `APIFY_TOKEN` set in the environment:
 npx -y @apify/actors-mcp-server --tools rod_analytics/website-to-markdown,rod_analytics/doc-to-markdown
 ```
 
-Tool names for all 14 Actors, comma-separated for the `tools` parameter:
+Tool names for all 17 Actors, comma-separated for the `tools` parameter:
 
 ```text
-rod_analytics/website-to-markdown,rod_analytics/doc-to-markdown,rod_analytics/media-transcriber,rod_analytics/seo-site-audit,rod_analytics/lighthouse-audit,rod_analytics/tech-stack-detector,rod_analytics/domain-security-audit,rod_analytics/company-contact-extractor,rod_analytics/bulk-email-verifier,rod_analytics/eu-company-lookup,rod_analytics/uk-companies-house,rod_analytics/ted-tenders,rod_analytics/multi-ats-jobs-api,rod_analytics/github-repo-stats
+rod_analytics/website-to-markdown,rod_analytics/doc-to-markdown,rod_analytics/media-transcriber,rod_analytics/seo-site-audit,rod_analytics/lighthouse-audit,rod_analytics/tech-stack-detector,rod_analytics/domain-security-audit,rod_analytics/company-contact-extractor,rod_analytics/bulk-email-verifier,rod_analytics/eu-company-lookup,rod_analytics/uk-companies-house,rod_analytics/ted-tenders,rod_analytics/multi-ats-jobs-api,rod_analytics/github-repo-stats,rod_analytics/email-format-finder,rod_analytics/work-email-finder,rod_analytics/hackernews-scraper
 ```
 
 Load only the few an agent needs. Every loaded Actor adds a tool definition to the agent's context.
@@ -178,7 +181,7 @@ Runnable versions in Python and Node.js are in [`recipes/website-contacts-to-ver
 
 ## Pricing
 
-All 14 Actors use Apify's pay-per-event pricing. You pay a small fee per run start plus a fee per result, such as per page, document, domain, audio minute, company record or job. Compute is included. Failed items are generally not charged, and each Store page lists what is free. Paid Apify plans get tier discounts.
+All 17 Actors use Apify's pay-per-event pricing. You pay a small fee per run start plus a fee per result, such as per page, document, domain, audio minute, company record or job. Compute is included. Failed items are generally not charged, and each Store page lists what is free. Paid Apify plans get tier discounts.
 
 Prices change, so this README does not list them. Each Store page linked above has the current price table. At time of writing, 2026-10, each example input in this repository costs under $0.20 per run.
 

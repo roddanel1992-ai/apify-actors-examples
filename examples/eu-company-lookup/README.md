@@ -80,4 +80,4 @@ Published tasks for this Actor on Apify Store, each with a tested input you can 
 
 ---
 
-[All 14 examples](../../README.md) · [VIES VAT Checker & EU Company Registry Lookup on Apify Store](https://apify.com/rod_analytics/eu-company-lookup)
+[All 17 examples](../../README.md) · [VIES VAT Checker & EU Company Registry Lookup on Apify Store](https://apify.com/rod_analytics/eu-company-lookup)

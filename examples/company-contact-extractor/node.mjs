@@ -24,5 +24,5 @@ for (const item of items) {
         continue;
     }
     const emails = (item.emails ?? []).map((e) => e.email).join(', ');
-    console.log(item.domain, '|', emails || '-', '|', item.phones?.[0]?.e164, '|', item.socials?.linkedin);
+    console.log(item.domain, '|', emails || '-', '|', item.phones?.[0]?.e164, '|', item.socials?.linkedin, '|', `people: ${item.peopleCount ?? 0}`);
 }

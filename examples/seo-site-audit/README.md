@@ -60,4 +60,4 @@ Published tasks for this Actor on Apify Store, each with a tested input you can 
 
 ---
 
-[All 14 examples](../../README.md) · [SEO Audit Tool: Site Crawler, Broken Links & Score on Apify Store](https://apify.com/rod_analytics/seo-site-audit)
+[All 17 examples](../../README.md) · [SEO Audit Tool: Site Crawler, Broken Links & Score on Apify Store](https://apify.com/rod_analytics/seo-site-audit)

@@ -1,9 +1,9 @@
-// Bulk email verification: run rod_analytics/bulk-email-verifier on Apify and print the results.
+// Hacker News scraper API example: run rod_analytics/hackernews-scraper on Apify and print the results.
 // Setup: npm install in the repo root, then set APIFY_TOKEN.
 import { readFile } from 'node:fs/promises';
 import { ApifyClient } from 'apify-client';
 
-const ACTOR = 'rod_analytics/bulk-email-verifier';
+const ACTOR = 'rod_analytics/hackernews-scraper';
 
 if (!process.env.APIFY_TOKEN) {
     console.error('Set the APIFY_TOKEN environment variable first.');
@@ -19,9 +19,16 @@ console.log(`Run ${run.status}: https://console.apify.com/view/runs/${run.id}`);
 const { items } = await client.dataset(run.defaultDatasetId).listItems();
 for (const item of items) {
     if (item.error) {
-        // Failed items and input help rows explain themselves.
+        // Input help rows explain themselves.
         console.log('no result:', JSON.stringify(item).slice(0, 200));
         continue;
     }
-    console.log(item.email, '|', item.verdict, item.score, '|', item.reason, '|', item.mailboxResult ?? '-', '|', item.didYouMean ?? '');
+    if (item.type === 'job_post') {
+        console.log(item.company, '|', item.role ?? '-', '|', item.location ?? '-', '|', item.salaryText ?? 'no salary');
+    } else if (item.type === 'comment') {
+        console.log(item.createdAt?.slice(0, 10), item.author, '|', (item.text ?? '').slice(0, 100).replace(/\s+/g, ' '));
+    } else {
+        console.log(item.createdAt?.slice(0, 10), `${item.points} points, ${item.numComments} comments |`, item.title);
+    }
+    console.log('   ', item.hnUrl);
 }

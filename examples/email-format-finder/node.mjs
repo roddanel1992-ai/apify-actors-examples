@@ -1,9 +1,9 @@
-// Bulk email verification: run rod_analytics/bulk-email-verifier on Apify and print the results.
+// Email format finder API example: run rod_analytics/email-format-finder on Apify and print the results.
 // Setup: npm install in the repo root, then set APIFY_TOKEN.
 import { readFile } from 'node:fs/promises';
 import { ApifyClient } from 'apify-client';
 
-const ACTOR = 'rod_analytics/bulk-email-verifier';
+const ACTOR = 'rod_analytics/email-format-finder';
 
 if (!process.env.APIFY_TOKEN) {
     console.error('Set the APIFY_TOKEN environment variable first.');
@@ -19,9 +19,9 @@ console.log(`Run ${run.status}: https://console.apify.com/view/runs/${run.id}`);
 const { items } = await client.dataset(run.defaultDatasetId).listItems();
 for (const item of items) {
     if (item.error) {
-        // Failed items and input help rows explain themselves.
+        // Rows without a result and input help rows explain themselves.
         console.log('no result:', JSON.stringify(item).slice(0, 200));
         continue;
     }
-    console.log(item.email, '|', item.verdict, item.score, '|', item.reason, '|', item.mailboxResult ?? '-', '|', item.didYouMean ?? '');
+    console.log(item.domain, '|', item.pattern, item.confidence, '|', item.supportingExamples, 'examples |', item.mx?.provider ?? '-');
 }

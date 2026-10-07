@@ -62,4 +62,4 @@ Published tasks for this Actor on Apify Store, each with a tested input you can 
 
 ---
 
-[All 14 examples](../../README.md) · [Bulk Domain Lookup: DNS, WHOIS, SPF, DMARC & SSL on Apify Store](https://apify.com/rod_analytics/domain-security-audit)
+[All 17 examples](../../README.md) · [Bulk Domain Lookup: DNS, WHOIS, SPF, DMARC & SSL on Apify Store](https://apify.com/rod_analytics/domain-security-audit)

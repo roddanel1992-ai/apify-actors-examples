@@ -60,4 +60,4 @@ Published tasks for this Actor on Apify Store, each with a tested input you can 
 
 ---
 
-[All 14 examples](../../README.md) · [Speech to Text: Audio, Video & Podcast Transcriber on Apify Store](https://apify.com/rod_analytics/media-transcriber)
+[All 17 examples](../../README.md) · [Speech to Text: Audio, Video & Podcast Transcriber on Apify Store](https://apify.com/rod_analytics/media-transcriber)

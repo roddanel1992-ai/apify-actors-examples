@@ -24,4 +24,4 @@ for item in client.dataset(run.default_dataset_id).iterate_items():
     if item.get("error"):  # failed items and input help rows explain themselves
         print("no result:", json.dumps(item, ensure_ascii=False)[:200])
         continue
-    print(item.get("email"), "|", item.get("verdict"), item.get("score"), "|", item.get("reason"), "|", item.get("didYouMean") or "")
+    print(item.get("email"), "|", item.get("verdict"), item.get("score"), "|", item.get("reason"), "|", item.get("mailboxResult") or "-", "|", item.get("didYouMean") or "")

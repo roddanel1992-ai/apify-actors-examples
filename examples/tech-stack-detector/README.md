@@ -61,4 +61,4 @@ Published tasks for this Actor on Apify Store, each with a tested input you can 
 
 ---
 
-[All 14 examples](../../README.md) · [Tech Stack Detector: Wappalyzer & BuiltWith Alternative on Apify Store](https://apify.com/rod_analytics/tech-stack-detector)
+[All 17 examples](../../README.md) · [Tech Stack Detector: Wappalyzer & BuiltWith Alternative on Apify Store](https://apify.com/rod_analytics/tech-stack-detector)

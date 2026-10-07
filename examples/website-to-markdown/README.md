@@ -63,4 +63,4 @@ Published tasks for this Actor on Apify Store, each with a tested input you can 
 
 ---
 
-[All 14 examples](../../README.md) · [Website Content Crawler to Markdown for RAG & LLMs on Apify Store](https://apify.com/rod_analytics/website-to-markdown)
+[All 17 examples](../../README.md) · [Website Content Crawler to Markdown for RAG & LLMs on Apify Store](https://apify.com/rod_analytics/website-to-markdown)

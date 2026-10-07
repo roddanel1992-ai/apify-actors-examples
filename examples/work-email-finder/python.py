@@ -1,4 +1,4 @@
-"""Website contact scraper API example: emails, phones, social links: run rod_analytics/company-contact-extractor on Apify and print the results.
+"""Work email finder API example: run rod_analytics/work-email-finder on Apify and print the results.
 
 Setup: pip install -r requirements.txt in the repo root, then set APIFY_TOKEN.
 """
@@ -10,7 +10,7 @@ from pathlib import Path
 
 from apify_client import ApifyClient
 
-ACTOR = "rod_analytics/company-contact-extractor"
+ACTOR = "rod_analytics/work-email-finder"
 
 token = os.environ.get("APIFY_TOKEN") or sys.exit("Set the APIFY_TOKEN environment variable first.")
 run_input = json.loads((Path(__file__).parent / "input.json").read_text())
@@ -21,9 +21,7 @@ run = client.actor(ACTOR).call(run_input=run_input, max_total_charge_usd=Decimal
 print(f"Run {run.status}: https://console.apify.com/view/runs/{run.id}")
 
 for item in client.dataset(run.default_dataset_id).iterate_items():
-    if item.get("error"):  # failed items and input help rows explain themselves
+    if item.get("error"):  # rows without a result and input help rows explain themselves
         print("no result:", json.dumps(item, ensure_ascii=False)[:200])
         continue
-    emails = ", ".join(e.get("email", "") for e in item.get("emails") or [])
-    phones = item.get("phones") or [{}]
-    print(item.get("domain"), "|", emails or "-", "|", phones[0].get("e164"), "|", (item.get("socials") or {}).get("linkedin"), "|", f"people: {item.get('peopleCount') or 0}")
+    print(item.get("firstName"), item.get("lastName"), "|", item.get("email"), "|", item.get("status"), item.get("confidence"), "|", item.get("verifiedBy") or item.get("label") or "-")
